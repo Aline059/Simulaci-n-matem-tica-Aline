@@ -1,0 +1,178 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.183 Electron/31.3.0 Safari/537.36" version="24.7.5">
+  <diagram name="Page-1" id="9OH-f8QcrO27egLnzIiv">
+    <mxGraphModel dx="1272" dy="969" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="405" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-1" value="Inicio del algoritmo" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="170" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="405" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-3" value="Definir el valor de a (número que quiero comprobar si es primo o no)" style="shape=manualInput;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="200" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="425" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="405" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-5" value="a es == 0?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="322.5" y="350" width="165" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-8" value="Verdadero" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="560" y="410" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="255" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-10" value="&quot;a no puede ser 0&quot;" style="shape=display;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="232.5" width="180" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="405" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-13" value="Falso" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="375" y="535" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="405.55555555555543" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-15" value="Ciclo for donde las iteraciones vayan de 1 hasta a aumentando de 1 en 1&amp;nbsp;&lt;div&gt;En cada vuelta divido a entre i&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="315" y="600" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="839.7777777777778" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="839.7777777777778" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="405.55555555555543" y="950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-17" value="El cociente de la división es 0?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="337.5" y="780" width="135" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-20">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="839.7777777777778" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-20" value="Verdadero" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="825" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="839.7777777777778" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-21" value="Falso" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="230" y="825" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-24">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="640" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="130" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-24" value="Contador no aumenta" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="820" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-37" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-25" target="F7Ld610Mg1t6K5wbmobx-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="680" y="630" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="680" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-25" value="Que un contador aumente +1&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="810" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-27">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="1045.3333333333333" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-43" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-27">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="404.81818181818176" y="1160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-27" value="El contador es &amp;gt; 2?&amp;nbsp;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="317.5" y="960" width="175" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-30">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="1045.3333333333333" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-30" value="Verdadero" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="1030" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-44" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="404.81818181818176" y="1220.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-31" value="Falso" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="375" y="1160" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-45" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=91.25;exitDy=59.99999999999999;exitPerimeter=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="401.181818181818" y="1320.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-34" value="&quot;El numero a es primo&quot;" style="shape=display;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="1230" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-42" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=100;exitDy=75;exitPerimeter=0;" edge="1" parent="1" source="F7Ld610Mg1t6K5wbmobx-35">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="1370" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="740" y="1370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-35" value="&quot;El número a no es primo&quot;" style="shape=display;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="1012.5" width="190" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="F7Ld610Mg1t6K5wbmobx-41" value="Fin del algoritmo" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="337.5" y="1330" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
