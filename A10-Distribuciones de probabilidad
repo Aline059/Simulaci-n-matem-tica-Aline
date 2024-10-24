@@ -1,0 +1,872 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "9f64fe3b-e071-4f65-a3e9-ccdbd22bb406",
+   "metadata": {},
+   "source": [
+    "# A10 - Distribuciones de probabilidad "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fb6cb659-e569-4b9d-81dc-bec436055e6a",
+   "metadata": {},
+   "source": [
+    "**Aline Rockenzahn**  \n",
+    "**Jueves 17 octubre 2024** "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e9c56d9a-f567-4f1d-a7d0-8fc342ef4043",
+   "metadata": {},
+   "source": [
+    "1.- Menciona tres ejemplos de variables aleatorias discretas: "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "494995fa-1b23-4f66-86dc-a1d11eb0a1a5",
+   "metadata": {},
+   "source": [
+    "- El resultado de lanzar un dado \n",
+    "- El resultado de lanzar una moneda \n",
+    "- Cuántos estudiantes de simulación matemática entregaron la tarea del jueves pasado "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b36f9883-401c-4669-b676-abdc68ac0246",
+   "metadata": {},
+   "source": [
+    "2.- Menciona tres ejemplos de variables aleatorias continuas:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "918e03db-2af0-458a-8447-cc281afe2035",
+   "metadata": {},
+   "source": [
+    "- el precio de un dólar (USD) contra el peso mexicano (MXN)\n",
+    "- la altura de una persona\n",
+    "- la distancia que vuela un pájaro"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4698ef28-2926-4691-b4d7-d0d5dde31545",
+   "metadata": {},
+   "source": [
+    "3.- Dos equipos juegan una serie de juegos (4 de 7, el que gane 4 juegos gana). Cada equipo tiene un 50% de probabilidad de ganar cada juego (no empates). ¿Cuál es la probabilidad de que la serie se vaya a 7 juegos? (5/16)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "eb835eec-8994-41e4-baf9-04d743b74223",
+   "metadata": {},
+   "source": [
+    "Se hace con distribución de Binomial   \n",
+    "La única forma de que se vayan a 7 juegos es que cada equipo gane 3 partidas.   \n",
+    "En otras palabras es la probabilidad de que eso suceda.   \n",
+    "Son entonces 6 juegos en total, y en cada uno hay 1/2 de prob de ganar   \n",
+    "Matemáticamente se expresa como: (1/2)^6 = 1/64 Significa que cada posible resultado esa probabilidad de ocurrir.  \n",
+    "Esto sale de 1/2 * 1/2 * 1/2* 1/2* 1/2* 1/2 = (1/2)^6  \n",
+    "Lo que sigue saber es cuántas de todas las posibles opciones me pueden dar la combinación de 3 victorias para cada equipo en 6 partidas.   \n",
+    "\n",
+    "$${6\\choose 3}$$ \n",
+    "Quiere decir de cuántas formas posibles se pueden asignar 3 victorias a un equipo en 6 juegos.   \n",
+    "n = 6 \n",
+    "k = 3 \n",
+    "${n\\choose k}=\\frac{n!}{k!(n-k)!}$   \n",
+    "${6\\choose 3}=\\frac{6!}{3!(6-3)!}$   \n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "28df545a-77f7-434a-9453-b56869acf0fa",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "20.0"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import math \n",
+    "casos = math.factorial(6) / (math.factorial(3) * math.factorial(3))\n",
+    "casos"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "9feb8d60-58e1-4689-9e91-4925695c8192",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.3125"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "prob7juegos = casos * (1/64)\n",
+    "prob7juegos"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "ec4852f1-7163-4896-aa37-b88dffee7621",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "6"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import random \n",
+    "def juego(juegos_tot = 0):\n",
+    "    vic_1 = 0 \n",
+    "    vic_2 = 0 \n",
+    "    while vic_1 < 4 and vic_2 <4:\n",
+    "        victoria = random.choice([1,-1])\n",
+    "        if victoria == 1:\n",
+    "            vic_1 += 1\n",
+    "        else:\n",
+    "            vic_2 += 1 \n",
+    "        juegos_tot += 1 \n",
+    "    return juegos_tot \n",
+    "\n",
+    "juego() \n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 126,
+   "id": "4d447411-27d3-4795-a85f-5149b157cac2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def juegos_muchos(pruebas):\n",
+    "    casos_tot = []\n",
+    "    for i in range(pruebas+1):\n",
+    "        resultado = juego()\n",
+    "        casos_tot.append(resultado)\n",
+    "    return casos_tot "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 130,
+   "id": "7c47489f-43d8-4846-b784-9f579a001295",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "lista_casos_tot = juegos_muchos(50000) \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 134,
+   "id": "dc9b0f2e-1307-4950-9592-1bd07d5f7ab4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.3118137637247255"
+      ]
+     },
+     "execution_count": 134,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(np.array(lista_casos_tot) == 7).mean() #.sum() \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cec76e2a-edd2-4c3e-8131-1c460afd4648",
+   "metadata": {},
+   "source": [
+    "4.- Una en mil personas tienen una enfermedad H, y la prueba de la enfermedad sale correcta 98% de las veces cuando la persona está enferma. Por otro lado, si la persona está enferma la prueba tiene un error del 1%. Si alguien se hace una prueba y sale positiva, ¿cuál es la probabilidad de que tengan la enfermedad? (98/1097)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "46549790-f164-426f-93df-9649288e5f6a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "$$ P(D=1) = 0.1% $$\n",
+    "$$P(T=1)|D=1) = 98%$$ #prob de que test salga positivo dado que sí estoy enfermo \n",
+    "$$P(T=1|D=0) = 1%\n",
+    "#Bernoulli es que la prob sea 1 o 0 \n",
+    "#Los casos totales son todos los que salen positivos "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "9773e991-8e81-4cbc-9c37-16f339cd9be7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 118,
+   "id": "b1a8c9ef-cf86-49c0-913e-329d166e79e3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.08940092165898618"
+      ]
+     },
+     "execution_count": 118,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np \n",
+    "n = 100000\n",
+    "personas = np.random.choice([0,1], n,p=[0.999, 0.001])\n",
+    "t1_d1 = np.random.choice([0,1], personas.sum(), p=[0.02, 0.98])\n",
+    "t1_d0 = np.random.choice([0,1], n-personas.sum(), p = [0.99, 0.01])\n",
+    "t1_d1.sum()/(t1_d1.sum() + t1_d0.sum())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f3f910a8-6833-4b5c-9002-dc2e59076ad1",
+   "metadata": {},
+   "source": [
+    "¿Cuál es la probabilidad de que sí esté enfermo dado que la prueba dio positivo? \n",
+    "$$P(D=1| T=1) = ? $$"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ebf38f8d-4378-4757-903f-be4a1935135e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "100000\n",
+    "100 se enferman \n",
+    "98 salen positivos \n",
+    "2 salen negativos \n",
+    "99900 sanas \n",
+    "999 salen positivas \n",
+    "98901 salen negativas "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 116,
+   "id": "def2e702-bf25-42c6-a10a-cecf63673629",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.08933454876937101"
+      ]
+     },
+     "execution_count": 116,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "98/(98+999) #es los que sí estoy enfermo entre los enfermo + los falso positivos "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1ebe77a1-2f7e-4348-9d81-88f945a34d7b",
+   "metadata": {},
+   "source": [
+    "5.- Tres amigos diferentes te dijeron que está lloviendo, y cada persona tiene 1/3 de probabilidad de mentir. Si el pronóstico del clima dijo que la probabilidad de lluvia era 25%, ¿cuál es la probabilidad de que sí esté lloviendo? (8/11)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 140,
+   "id": "86e24492-669c-49b4-8798-f0e23013efc2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(0, True)"
+      ]
+     },
+     "execution_count": 140,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#de todos los casos posibles, los que me importan son en los que los 3 amigos dicen la verdad. \n",
+    "#Y de esos casos en cuántos sí estaba lloviendo. Eso es lo que pregunta el problema. \n",
+    "\n",
+    "import random \n",
+    "def lluvia1(): \n",
+    "    llueveono = np.random.choice([1,0], p=[0.25, 0.75]) #ya me dan la probabilidad de que sí esté lloviendo. 1 es que llueve \n",
+    "    amigo_1 = np.random.choice([1,0], p=[2/3, 1/3]) #1 es que dice la verdad \n",
+    "    amigo_2 = np.random.choice([1,0], p=[2/3, 1/3])\n",
+    "    amigo_3 = np.random.choice([1,0], p=[2/3, 1/3])\n",
+    "    if (amigo_1 == 1) & (amigo_2 == 1) & (amigo_3 == 1):\n",
+    "        return llueveono, True \n",
+    "    else: \n",
+    "        return llueveono, False \n",
+    "    \n",
+    "lluvia1() "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 120,
+   "id": "25aee905-57fa-4883-87dd-567a0cb5ef6c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def montecarlo_lluvia(n): \n",
+    "    llueve_o_no = [] \n",
+    "    tres_verdades = [] \n",
+    "    for i in range(n):\n",
+    "        lluvia, amigos = lluvia1()\n",
+    "        tres_verdades.append(amigos) #mete todos los casos de amigos \n",
+    "        if amigos == True:\n",
+    "            llueve_o_no.append(lluvia)\n",
+    "    prob_de_3_verdades =np.array(tres_verdades).mean()\n",
+    "    prob_de_lluvia_con_3verdades = np.array(llueve_o_no).mean() \n",
+    "    return prob_de_3_verdades, prob_de_lluvia_con_3verdades \n",
+    "        \n",
+    "\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 122,
+   "id": "d25aa259-0e97-4ef3-9683-e84349c61354",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(0.29687, 0.2564422137636002)"
+      ]
+     },
+     "execution_count": 122,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "montecarlo_lluvia(100000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 90,
+   "id": "c541fe40-08e4-491c-a6ca-5f9915fcdcdd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(False, False)"
+      ]
+     },
+     "execution_count": 90,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\n",
+    "def simular_lluvia():\n",
+    "   \n",
+    "    prob_lluvia = 0.25\n",
+    "    \n",
+    "    esta_lloviendo = np.random.rand() < prob_lluvia\n",
+    "    \n",
+    "    amigos_dicen_verdad = [np.random.rand() >= 1/3 for _ in range(3)]\n",
+    "    \n",
+    "    todos_dicen_lluvia = all(amigos_dicen_verdad) if esta_lloviendo else not any(amigos_dicen_verdad)\n",
+    "    \n",
+    "    return esta_lloviendo, todos_dicen_lluvia\n",
+    "\n",
+    "simular_lluvia() "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 124,
+   "id": "e8d3d78b-da8d-4372-8a33-1ff526579fd9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.7345924453280318\n"
+     ]
+    }
+   ],
+   "source": [
+    "def montecarlo_lluvia(n_simulaciones=10000):\n",
+    "    casos_favorables = 0\n",
+    "    casos_totales = 0\n",
+    "    \n",
+    "    for _ in range(n_simulaciones):\n",
+    "        esta_lloviendo, todos_dicen_lluvia = simular_lluvia()\n",
+    "        if todos_dicen_lluvia:\n",
+    "            casos_totales += 1\n",
+    "            if esta_lloviendo:\n",
+    "                casos_favorables += 1\n",
+    "    \n",
+    "    probabilidad_lluvia = casos_favorables / casos_totales if casos_totales > 0 else 0\n",
+    "    return probabilidad_lluvia\n",
+    "\n",
+    "\n",
+    "probabilidad_final = montecarlo_lluvia()\n",
+    "print(probabilidad_final) "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "79b95a15-3139-4181-a23d-8eb368835300",
+   "metadata": {},
+   "source": [
+    "6.- Resuelve y añade a esta actividad los ejercicios que están en el notebook \"Distribuciones de probabilidad.ipynb\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "af799cdc-2413-479b-95b4-adf6ddd42286",
+   "metadata": {},
+   "source": [
+    "1.- Avientas un dado tres veces. ¿Cuál es la probabilidad de tirar dos 6 seguidos?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 141,
+   "id": "3476d344-6587-44cd-a848-60bb3ea388e5",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.05"
+      ]
+     },
+     "execution_count": 141,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "n = 100\n",
+    "np.random.seed(0)\n",
+    "d1 = np.random.randint(1,7,n)\n",
+    "d2 = np.random.randint(1,7,n)\n",
+    "d3 = np.random.randint(1,7,n)\n",
+    "np.vstack((d1,d2,d3))\n",
+    "\n",
+    "caso1 = ((d1 == 6) & (d2 == 6) & (d3 != 6)) \n",
+    "caso2 = ((d2 == 6) & (d3 == 6)& (d1 != 6))\n",
+    "caso3 = ((d1 == 6) & (d2 == 6) & (d3 == 6)) \n",
+    "\n",
+    "(caso1.sum() + caso2.sum() + caso3.sum())/n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 144,
+   "id": "e339fce8-da79-4c70-b73c-70cbe951ab1b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.05092592592592592"
+      ]
+     },
+     "execution_count": 144,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "11/216"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f66b7fb8-80d1-4256-bcba-be0c875749b4",
+   "metadata": {},
+   "source": [
+    "2.- Avientas tres dados, uno tras otro. ¿Cuál es la probabilidad de obtener número sólo en orden ascendente?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "13a178cf-bd06-4b2d-ad33-c327de2e6e03",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.092355"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "n = 1000000\n",
+    "#np.random.seed(10)\n",
+    "for i in range(1000) :\n",
+    "    np.random.seed(i)\n",
+    "d1 = np.random.randint(1,7,n)\n",
+    "d2 = np.random.randint(1,7,n)\n",
+    "d3 = np.random.randint(1,7,n)\n",
+    "\n",
+    "exito = (d3 > d2) & (d2 > d1)\n",
+    "exito.sum()/n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 152,
+   "id": "95006976-b4a9-4b8c-ba4c-6949b12e2532",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.09259259259259259"
+      ]
+     },
+     "execution_count": 152,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "5/54"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "476a3138-838c-4959-8934-b7352615d1c8",
+   "metadata": {},
+   "source": [
+    "3.- Tienes una baraja con 100 cartas, con valores del 1 al 100. Tomas dos cartas aleatoriamente sin reemplazo. ¿Cuál es la probabilidad de que una carta valga el doble que la otra?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 80,
+   "id": "e18c5071-e404-4fe1-9ef1-f8de9db20479",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np \n",
+    "import random \n",
+    "\n",
+    "def cartas(): \n",
+    "    arreglo = np.arange(1,101)\n",
+    "    cartas_tomadas = np.random.choice(arreglo, 2, replace= False)\n",
+    "    carta_1 = cartas_tomadas[0] \n",
+    "    carta_2 = cartas_tomadas[1] \n",
+    "    if carta_1 == 2*carta_2 or carta_2 == 2*carta_1:\n",
+    "        return True \n",
+    "    else: \n",
+    "        return False \n",
+    "\n",
+    "def montecarlo_cartas(p):\n",
+    "    lista = [] \n",
+    "    for i in range(p):\n",
+    "        resultado = cartas()\n",
+    "        lista.append(resultado) \n",
+    "    return np.array(lista).mean() \n",
+    "        \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 84,
+   "id": "f50775f2-df15-4a71-a0c1-9d579022fa07",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "La probabilidad de que alguna de las cartas elegidas valga el doble que la otra es del:  1.018 %\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"La probabilidad de que alguna de las cartas elegidas valga el doble que la otra es del: \", montecarlo_cartas(100000)*100,\"%\") "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fd38ce4c-b37e-4216-a6cd-32b82e76a2d3",
+   "metadata": {},
+   "source": [
+    "4.- Tienes dos monedas: una con águila y sello, y la otra con doble sello. Escoges una al azar y la tiras 5 veces; cae sello 5 veces. ¿Cuál es la probabilidad de que tomaste la moneda con doble sello?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 140,
+   "id": "efb7c4df-e034-4c46-a020-00858508b5d4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(0, False)"
+      ]
+     },
+     "execution_count": 140,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#tiene que ser: de los casos que salieron 5 sellos, cuántos fueron con la moneda de doble sello? \n",
+    "#casos de 5 sellos con moneda de doble sello entre todos los casos de 5 sellos. \n",
+    "def monedas():\n",
+    "    # 0 para águila y sello, 1 para doble sello\n",
+    "    moneda = np.random.choice([0, 1])\n",
+    "    if moneda == 0:\n",
+    "        tiradas = np.random.choice(['sello', 'águila'], 5)\n",
+    "    else: \n",
+    "        tiradas = np.random.choice(['sello', 'sello'], 5)\n",
+    "   \n",
+    "    num_sellos = np.sum(tiradas == 'sello')\n",
+    "    if num_sellos == 5:\n",
+    "        return moneda, True \n",
+    "    else:\n",
+    "        return moneda, False \n",
+    "\n",
+    "monedas() "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 154,
+   "id": "bae3ed6c-3fe5-4960-91ff-9486be7dd7d9",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(0.51522, 0.970517448856799)"
+      ]
+     },
+     "execution_count": 154,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "def montecarlo_monedas(n=100000):\n",
+    "    prob_salga_5sellos = []\n",
+    "    prob_5sellos_siendo_1 = []\n",
+    "    for i in range(n):\n",
+    "        moneda, cinco_sellos = monedas()\n",
+    "        prob_salga_5sellos.append(cinco_sellos)\n",
+    "        if cinco_sellos == True:\n",
+    "            prob_5sellos_siendo_1.append(moneda) #1 para doble sello \n",
+    "        \n",
+    "\n",
+    "    prob_1 = np.array(prob_salga_5sellos).mean() #casos de 5 sellos entre todas las simulaciones \n",
+    "    prob_2 = np.array(prob_5sellos_siendo_1).mean() #casos de 5 sellos con moneda doble sello entre todos los casos de 5 sellos        \n",
+    "         \n",
+    "    return prob_1, prob_2\n",
+    "\n",
+    "\n",
+    "prob_1, prob_2 = montecarlo_monedas(100000)   \n",
+    "prob_1, prob_2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 152,
+   "id": "a36a5e40-79ce-46a0-bfae-f319db240619",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Si se lanzan 5 veces una moenda de las dos posibles opciones de monedas que se tienen, la probabilidad de obtener 5 sellos es del  51.359 %. La probabiliad de que se haya elegido la moneda con doble sello al haber obtenido 5 sellos es del  97.03070542650752 %\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Si se lanzan 5 veces una moenda de las dos posibles opciones de monedas que se tienen, la probabilidad de obtener 5 sellos es del \",prob_1*100,\"%. La probabiliad de que se haya elegido la moneda con doble sello al haber obtenido 5 sellos es del \", prob_2*100,\"%\") "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1f014cc3-8805-42b5-8f14-d9bb35623320",
+   "metadata": {},
+   "source": [
+    "5.- Dos personas juegan tenis y están empatadas en 40-40. Esto significa que el set continúa hasta que alguien haya anotado 2 puntos sobre el otro:\n",
+    "\n",
+    "Si un jugador anota la puntuación es A-40\n",
+    "Si el segundo jugador anota la puntuación regresa a 40-40\n",
+    "El jugador 1 tiene una probabilidad de 60% de ganar cada punto, mientras que la probabilidad del segundo jugador es de 40%. ¿Cuál es la probabilidad de que el primer jugador gane el set?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 196,
+   "id": "6ab1bb8f-1c85-4d76-84e0-56d486f37418",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'A'"
+      ]
+     },
+     "execution_count": 196,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#a la oración del A-40 no le veo sentido \n",
+    "def tenis():\n",
+    "    puntos_jugador_A = 0 \n",
+    "    puntos_jugador_B = 0 \n",
+    "    while puntos_jugador_A != puntos_jugador_B+2 and puntos_jugador_B != puntos_jugador_A+2: \n",
+    "        punto = np.random.choice([\"A\",\"B\"], size=None, replace=True, p=[0.6, 0.4]) #las prob como fracciones \n",
+    "        if punto == \"A\": \n",
+    "            puntos_jugador_A +=1 \n",
+    "        else:\n",
+    "            puntos_jugador_B +=1 \n",
+    "            \n",
+    "    if puntos_jugador_A == puntos_jugador_B+2: #el orden de los ifs si afecta. El que vaya primero tendrá más posibilidades de ganar. \n",
+    "        return \"A\"\n",
+    "    if puntos_jugador_B == puntos_jugador_A+2: \n",
+    "        return \"B\" \n",
+    "tenis()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 197,
+   "id": "62869e2d-e631-4260-879a-e263d0898aac",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.6885"
+      ]
+     },
+     "execution_count": 197,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "def montecarlo_tenis(n):\n",
+    "    lista = [] \n",
+    "    for i in range(n):\n",
+    "        resultado = tenis() \n",
+    "        lista.append(resultado)\n",
+    "    prob_gana_A = (np.array(lista) ==\"A\").mean() \n",
+    "    return prob_gana_A \n",
+    "\n",
+    "montecarlo_tenis(10000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 201,
+   "id": "8c127c8a-0bde-46f2-ad50-008668afef0e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "La probabilidad de que el primer jugador gane el set es del  69.27 % \n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"La probabilidad de que el primer jugador gane el set es del \", montecarlo_tenis(10000)*100,\"% \") "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
